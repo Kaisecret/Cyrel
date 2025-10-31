@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals - Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Cyrel</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">HOME</a>
+                <div class="dropdown">
+                    <button class="nav-link dropbtn active">ABOUT <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="skills.html">Skills</a>
+                        <a href="goals.html">Goals</a>
+                        <a href="funfacts.html">Fun Facts</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="nav-link">GALLERY</a>
+                <a href="contact.html" class="nav-link">CONTACT</a>
+                <button class="logout-button">LOG OUT</button>
+            </div>
+            <button class="mobile-menu-button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="skills.html" class="nav-link">Skills</a>
+            <a href="goals.html" class="nav-link active">Goals</a>
+            <a href="funfacts.html" class="nav-link">Fun Facts</a>
+            <a href="gallery.html" class="nav-link">GALLERY</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            <button class="logout-button">LOG OUT</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="container section">
+            <div class="section-header">
+                <i class="fa-solid fa-academic-cap section-icon"></i>
+                <h2>My Goals as a Student</h2>
+                <p>Here are the aspirations I’m passionately pursuing!</p>
+            </div>
+
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <div class="goal-header color-sky">
+                        <h3>Short-Term Goals</h3>
+                    </div>
+                    <div class="goal-content">
+                     <p class="goal-subtitle">Pass my subjects and build small projects.</p>
+                    <div class="goal-details">
+                    <p>Right now I’m focused on understanding class lessons, finishing assignments on time, and practicing by making simple websites and apps.</p>
+                    </div>
+                    </div>
+
+                </div>
+                <div class="goal-card">
+                    <div class="goal-header color-teal">
+                        <h3>Long-Term Goals</h3>
+                    </div>
+                    <div class="goal-content">
+                    <p class="goal-subtitle">Graduate and keep studying.</p>
+                    <div class="goal-details">
+                      <p>My long-term goal is to finish my IT degree and continue learning front-end development through practice projects and courses.</p>
+                       </div>
+                       </div>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-header color-amber">
+                        <h3>Personal Development</h3>
+                    </div>
+                  <div class="goal-content">
+                  <p class="goal-subtitle">Build good habits and confidence.</p>
+                  <div class="goal-details">
+                    <p>I’m improving my time management, communication, and study routines so I can learn better, stay healthy, and handle stress.</p>
+                 </div>
+                </div>
+
+                </div>
+                <div class="goal-card">
+                    <div class="goal-header color-rose">
+                        <h3>Career Goals</h3>
+                    </div>
+                   <div class="goal-content">
+                   <p class="goal-subtitle">Get an internship and grow my portfolio.</p>
+                   <div class="goal-details">
+                  <p>I plan to create a few solid projects, apply for internships, and gain real experience that will help me start my career after graduation.</p>
+                  </div>
+                 </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cyrel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Goals Accordion
+        const goalCards = document.querySelectorAll('.goal-card');
+        goalCards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('open');
+            });
+        });
+    </script>
+
+    <!-- Minimal fix: make LOG OUT buttons work without changing markup -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const logoutButtons = document.querySelectorAll('.logout-button');
+        logoutButtons.forEach(function(btn){
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const ok = window.confirm('Are you sure you want to log out?');
+            if (ok) {
+              try { localStorage.removeItem('isLoggedIn'); } catch (err) {}
+              window.location.href = 'login.html';
+            }
+          });
+        });
+      });
+    </script>
+</body>
+</html>

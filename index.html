@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+    "@heroicons/react/": "https://aistudiocdn.com/@heroicons/react@^2.2.0/"
+  }
+}
+</script>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Cyrel</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">HOME</a>
+                <div class="dropdown">
+                    <button class="nav-link dropbtn">ABOUT <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="skills.html">Skills</a>
+                        <a href="goals.html">Goals</a>
+                        <a href="funfacts.html">Fun Facts</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="nav-link">GALLERY</a>
+                <a href="contact.html" class="nav-link">CONTACT</a>
+                <button class="logout-button">LOG OUT</button>
+            </div>
+            <button class="mobile-menu-button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <a href="index.html" class="nav-link active">HOME</a>
+            <a href="skills.html" class="nav-link">Skills</a>
+            <a href="goals.html" class="nav-link">Goals</a>
+            <a href="funfacts.html" class="nav-link">Fun Facts</a>
+            <a href="gallery.html" class="nav-link">GALLERY</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            <button class="logout-button">LOG OUT</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-slider">
+            <div class="slide">
+                <img src="https://picsum.photos/1920/1080?random=1" alt="Welcome to my Website!">
+                <div class="overlay"></div>
+                <h1>Welcome to my Website!</h1>
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/1920/1080?random=2" alt="Exploring the World of Code">
+                <div class="overlay"></div>
+                <h1>Exploring the World of Code</h1>
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/1920/1080?random=3" alt="Creativity in Every Line">
+                <div class="overlay"></div>
+                <h1>Creativity in Every Line</h1>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="section-header">
+                <i class="fa-solid fa-user-circle section-icon"></i>
+                <h2>About Me</h2>
+                <p>A Glimpse Into Who I Am</p>
+            </div>
+            <div class="about-me-card">
+                <div class="about-me-image">
+                    <img src="Me.jpg" alt="Ton's Portrait">
+                </div>
+                <div class="about-me-content">
+                    <h1>Hi, I'm Cyrel!</h1>
+                    <p>
+                        Hi My name is Cyrel G. Vicentino, 19 I’m an IT student who loves crafting fast, accessible front-end experiences. Blending graphic design with clean code, I turn ideas into responsive interfaces that actually ship. When I’m off the keyboard, I’m on the volleyball court where teamwork and quick reads sharpen how I collaborate and solve problems and I'm Always learning.
+                    </p>
+                    <blockquote>
+                        "On the screen or on the court, communication is the MVP."
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="section-header">
+                <i class="fa-solid fa-sparkles section-icon"></i>
+                <h2>Fun Facts</h2>
+                <p>A Few Things That Make Me, Me</p>
+            </div>
+            <div class="fun-facts-grid">
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front">
+                            <p>Volleyball Vibes Only!</p>
+                        </div>
+                        <div class="fun-fact-back">
+                            <p>I live for spikes, digs, and long rallies after class.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front">
+                            <p>Code & Court!</p>
+                        </div>
+                        <div class="fun-fact-back">
+                            <p>Mornings debugging, evenings serving aces!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front">
+                            <p>Spike Specialist</p>
+                        </div>
+                        <div class="fun-fact-back">
+                            <p>My favorite bug to squash is a soft block at the net.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front">
+                            <p>Fit & Focused!</p>
+                        </div>
+                        <div class="fun-fact-back">
+                            <p>Training builds stamina; studying sharpens logic.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="see-more-container">
+                <a href="funfacts.html" class="see-more-button">See More Fun Facts</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cyrel. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // Hero Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slider .slide');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+            });
+        }
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        showSlide(currentSlide);
+    </script>
+
+    <!-- Minimal fix: make LOG OUT buttons work without changing markup -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const logoutButtons = document.querySelectorAll('.logout-button');
+        logoutButtons.forEach(function(btn){
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const ok = window.confirm('Are you sure you want to log out?');
+            if (ok) {
+              try { localStorage.removeItem('isLoggedIn'); } catch (err) {}
+              window.location.href = 'login.html';
+            }
+          });
+        });
+      });
+    </script>
+</body>
+</html>

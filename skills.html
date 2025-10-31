@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Cyrel</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">HOME</a>
+                <div class="dropdown">
+                    <button class="nav-link dropbtn active">ABOUT <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="skills.html">Skills</a>
+                        <a href="goals.html">Goals</a>
+                        <a href="funfacts.html">Fun Facts</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="nav-link">GALLERY</a>
+                <a href="contact.html" class="nav-link">CONTACT</a>
+                <button class="logout-button">LOG OUT</button>
+            </div>
+            <button class="mobile-menu-button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="skills.html" class="nav-link active">Skills</a>
+            <a href="goals.html" class="nav-link">Goals</a>
+            <a href="funfacts.html" class="nav-link">Fun Facts</a>
+            <a href="gallery.html" class="nav-link">GALLERY</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            <button class="logout-button">LOG OUT</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="container section">
+            <div class="section-header">
+                <i class="fa-solid fa-academic-cap section-icon"></i>
+                <h2>Skills I'm Developing</h2>
+                <p>As a student, I’m actively developing a diverse set of skills that reflect my passions in technology and beyond.</p>
+            </div>
+
+            <div class="skills-container">
+                <div class="skills-tabs">
+                    <button class="skill-tab-button active" data-tab="it">Information Technology</button>
+                    <button class="skill-tab-button" data-tab="graphic-design">Graphic Design</button>
+                    <button class="skill-tab-button" data-tab="public-speaking">Public Speaking</button>
+                    <button class="skill-tab-button" data-tab="problem-solving">Problem Solving</button>
+                </div>
+                <div class="skills-content">
+                    <div class="skill-tab-content active" id="it">
+                        <h3>Information Technology</h3>
+                        <ul>
+                            <li>Comfortable with <strong>HTML, CSS, and JavaScript</strong> for simple web pages</li>
+                            <li>Writing clean, readable code with comments and meaningful names</li>
+                            <li>Fundamentals of SQL and Firebase/Firestore for simple apps</li>
+                        </ul>
+                    </div>
+                    <div class="skill-tab-content" id="graphic-design">
+                        <h3>Graphic Design</h3>
+                        <ul>
+                            <li>Exploring visual design with tools like <strong>Adobe Illustrator and Figma</strong></li>
+                           <li>Polished posters/social posts in <strong>Canva</strong></li>
+                             <li>Designing with <strong>accessibility</strong> in mind (contrast, font size)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-tab-content" id="public-speaking">
+                        <h3>Public Speaking</h3>
+                        <ul>
+                            <li>Clear, short presentations with a <strong>problem → solution → demo</strong> flow</li>
+                            <li>Practicing <strong>voice</strong>, <strong>pacing</strong>, and <strong>eye contact</strong></li>
+                            <li>Handling <strong>Q&amp;A</strong> by restating the question and answering simply</li>
+                            <li>Using visuals (few words, more demos)</li>
+                            <li>Running quick <strong>standups</strong> and team updates</li>
+                        </ul>
+                    </div>
+                    <div class="skill-tab-content" id="problem-solving">
+                        <h3>Problem Solving</h3>
+                        <ul>
+                            <li>Breaking tasks into small to-dos and testing as I go</li>
+                            <li><strong>Rubber-duck</strong> debugging and reading error messages</li>
+                            <li>Searching docs / <strong>Stack Overflow</strong> effectively</li>
+                            <li>Writing <strong>checklists</strong> before builds/releases</li>
+                            <li>Learning from mistakes with a short <strong>post-mortem</strong> note</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cyrel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Skills Tabs
+        const tabButtons = document.querySelectorAll('.skill-tab-button');
+        const tabContents = document.querySelectorAll('.skill-tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.dataset.tab;
+
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                tabContents.forEach(content => {
+                    if (content.id === tabId) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Minimal fix: make LOG OUT buttons work without changing markup -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const logoutButtons = document.querySelectorAll('.logout-button');
+        logoutButtons.forEach(function(btn){
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const ok = window.confirm('Are you sure you want to log out?');
+            if (ok) {
+              try { localStorage.removeItem('isLoggedIn'); } catch (err) {}
+              window.location.href = 'login.html';
+            }
+          });
+        });
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Facts - Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Cyrel</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">HOME</a>
+                <div class="dropdown">
+                    <button class="nav-link dropbtn active">ABOUT <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="skills.html">Skills</a>
+                        <a href="goals.html">Goals</a>
+                        <a href="funfacts.html">Fun Facts</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="nav-link">GALLERY</a>
+                <a href="contact.html" class="nav-link">CONTACT</a>
+                <button class="logout-button">LOG OUT</button>
+            </div>
+            <button class="mobile-menu-button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="skills.html" class="nav-link">Skills</a>
+            <a href="goals.html" class="nav-link">Goals</a>
+            <a href="funfacts.html" class="nav-link active">Fun Facts</a>
+            <a href="gallery.html" class="nav-link">GALLERY</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            <button class="logout-button">LOG OUT</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="container section">
+            <div class="section-header">
+                <i class="fa-solid fa-sparkles section-icon"></i>
+                <h2>Fun Facts About Me</h2>
+                <p>Hello and welcome! This space highlights the fun bits that make me, me: an IT student who codes with curiosity, hunts for the best coffee, and stays active with volleyball and other sports. Dive in to see what keeps me learning, moving, and smiling.</p>
+            </div>
+            <div class="fun-facts-grid full-page">
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front"><p>Volleyball Vibes Only!</p></div>
+                        <div class="fun-fact-back"><p>I live for spikes, digs, and long rallies after class.</p></div>
+                    </div>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front"><p>Code & Court!</p></div>
+                        <div class="fun-fact-back"><p>Mornings debugging, evenings serving aces!</p></div>
+                    </div>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front"><p>Spike Specialist!</p></div>
+                        <div class="fun-fact-back"><p>My favorite bug to squash is a soft block at the net.</p></div>
+                    </div>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front"><p>Fit & Focused!</p></div>
+                        <div class="fun-fact-back"><p>Training builds stamina; studying sharpens logic!</p></div>
+                    </div>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front"><p>Libero Life</p></div>
+                        <div class="fun-fact-back"><p>Reliability matters in back-row defense and back-end systems.</p></div>
+                    </div>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front"><p>Goal Setter</p></div>
+                        <div class="fun-fact-back"><p>Clear targets for my jumps, grades, and Git commits.</p></div>
+                    </div>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front"><p>Teamwork Titan</p></div>
+                        <div class="fun-fact-back"><p>Great plays and great projects both start with trust.</p></div>
+                    </div>
+                </div>
+                <div class="fun-fact-card">
+                    <div class="fun-fact-inner">
+                        <div class="fun-fact-front"><p>Forever Athlete</p></div>
+                        <div class="fun-fact-back"><p>Sports keep me moving while tech keeps me curious.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cyrel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Minimal fix: make LOG OUT buttons work without changing markup -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const logoutButtons = document.querySelectorAll('.logout-button');
+        logoutButtons.forEach(function(btn){
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const ok = window.confirm('Are you sure you want to log out?');
+            if (ok) {
+              try { localStorage.removeItem('isLoggedIn'); } catch (err) {}
+              window.location.href = 'login.html';
+            }
+          });
+        });
+      });
+    </script>
+</body>
+</html>

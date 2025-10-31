@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Cyrel</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">HOME</a>
+                <div class="dropdown">
+                    <button class="nav-link dropbtn">ABOUT <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="skills.html">Skills</a>
+                        <a href="goals.html">Goals</a>
+                        <a href="funfacts.html">Fun Facts</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="nav-link">GALLERY</a>
+                <a href="contact.html" class="nav-link active">CONTACT</a>
+                <button class="logout-button">LOG OUT</button>
+            </div>
+            <button class="mobile-menu-button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="skills.html" class="nav-link">Skills</a>
+            <a href="goals.html" class="nav-link">Goals</a>
+            <a href="funfacts.html" class="nav-link">Fun Facts</a>
+            <a href="gallery.html" class="nav-link">GALLERY</a>
+            <a href="contact.html" class="nav-link active">CONTACT</a>
+            <button class="logout-button">LOG OUT</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="container section">
+            <div class="section-header">
+                <i class="fa-solid fa-envelope section-icon"></i>
+                <h2>Let's Get in Touch</h2>
+                <p>Have a question or want to work together? Drop me a line!</p>
+            </div>
+
+            <div class="contact-container">
+                <form id="contact-form" class="contact-form">
+                    <h3>Send a Message</h3>
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name">
+                        <p class="error-message"></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email">
+                        <p class="error-message"></p>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message"></textarea>
+                        <p class="error-message"></p>
+                    </div>
+                    <button type="submit">SEND MESSAGE</button>
+                    <p id="success-message" class="success-message"></p>
+                </form>
+
+                <div class="contact-info">
+                    <h3>Contact Info</h3>
+                    <div class="info-item">
+                        <p class="info-title">Email Address</p>
+                        <p>cyrelgrencio15@gmail.com</p>
+                    </div>
+                    <hr>
+                    <div class="info-item">
+                        <p class="info-title">Phone Number</p>
+                        <p>0953 961 9853</p>
+                    </div>
+                    <hr>
+                    <div class="info-item">
+                        <p class="info-title">Address</p>
+                        <p>Antique, Philippines</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cyrel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact Form Validation
+        const form = document.getElementById('contact-form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (validateForm()) {
+                successMessage.textContent = 'Your message has been sent successfully!';
+                form.reset();
+                setTimeout(() => {
+                    successMessage.textContent = '';
+                }, 5000);
+            }
+        });
+
+        function validateForm() {
+            let isValid = true;
+            validateField(nameInput, 'Name is required.');
+            validateField(emailInput, 'Email is required.', 'Email is invalid.', /\S+@\S+\.\S+/);
+            validateField(messageInput, 'Message is required.');
+
+            document.querySelectorAll('.form-group .error-message').forEach(msg => {
+                if (msg.textContent !== '') isValid = false;
+            });
+            
+            return isValid;
+        }
+
+        function validateField(input, requiredMsg, invalidMsg = null, regex = null) {
+            const errorElement = input.nextElementSibling;
+            if (input.value.trim() === '') {
+                errorElement.textContent = requiredMsg;
+            } else if (regex && !regex.test(input.value)) {
+                errorElement.textContent = invalidMsg;
+            } else {
+                errorElement.textContent = '';
+            }
+        }
+    </script>
+
+    <!-- Minimal fix: make LOG OUT buttons work without changing markup -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const logoutButtons = document.querySelectorAll('.logout-button');
+        logoutButtons.forEach(function(btn){
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const ok = window.confirm('Are you sure you want to log out?');
+            if (ok) {
+              try { localStorage.removeItem('isLoggedIn'); } catch (err) {}
+              window.location.href = 'login.html';
+            }
+          });
+        });
+      });
+    </script>
+</body>
+</html>

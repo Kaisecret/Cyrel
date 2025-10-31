@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Cyrel</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">HOME</a>
+                <div class="dropdown">
+                    <button class="nav-link dropbtn">ABOUT <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="skills.html">Skills</a>
+                        <a href="goals.html">Goals</a>
+                        <a href="funfacts.html">Fun Facts</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="nav-link active">GALLERY</a>
+                <a href="contact.html" class="nav-link">CONTACT</a>
+                <button class="logout-button">LOG OUT</button>
+            </div>
+            <button class="mobile-menu-button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="skills.html" class="nav-link">Skills</a>
+            <a href="goals.html" class="nav-link">Goals</a>
+            <a href="funfacts.html" class="nav-link">Fun Facts</a>
+            <a href="gallery.html" class="nav-link active">GALLERY</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            <button class="logout-button">LOG OUT</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="container section">
+            <div class="section-header">
+                <i class="fa-solid fa-photo-film section-icon"></i>
+                <h2>Gallery</h2>
+                <p>A collection of moments and creations.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Me2.jpg" alt="Serene Mountain View">
+                    <div class="gallery-overlay"><p>My mirror view</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Me3.jpg" alt="Urban Cityscape at Night">
+                    <div class="gallery-overlay"><p>My Back view</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Me4.jpg" alt="Abstract Code Visualization">
+                    <div class="gallery-overlay"><p>Me with my jersey</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Me5.jpg" alt="Minimalist Workspace">
+                    <div class="gallery-overlay"><p>My Minimalist Selfie</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Me6.jpg" alt="Forest Path in Autumn">
+                    <div class="gallery-overlay"><p>Golden Hour!</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Me7.jpg" alt="Ocean Waves Crashing">
+                    <div class="gallery-overlay"><p>Classic Selfie of me</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Me8.jpg" alt="Architectural Details">
+                    <div class="gallery-overlay"><p>Same soul, Upgrade Energy</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Me1.jpg" alt="A Cozy Coffee Shop">
+                    <div class="gallery-overlay"><p>Stay Radiant!</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cyrel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Gallery Lightbox
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                lightboxImg.src = imgSrc;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    </script>
+
+    <!-- Minimal fix: make LOG OUT buttons work without changing markup -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const logoutButtons = document.querySelectorAll('.logout-button');
+        logoutButtons.forEach(function(btn){
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const ok = window.confirm('Are you sure you want to log out?');
+            if (ok) {
+              try { localStorage.removeItem('isLoggedIn'); } catch (err) {}
+              window.location.href = 'login.html';
+            }
+          });
+        });
+      });
+    </script>
+</body>
+</html>
