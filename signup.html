@@ -1,0 +1,70 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Personal Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-200 font-sans">
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-md w-full bg-slate-800 rounded-lg shadow-xl p-8">
+            
+            <!-- Sign Up Form -->
+            <div id="signup-form">
+                <h2 class="text-3xl font-bold text-center text-white mb-2">Sign Up</h2>
+                <p class="text-center text-slate-400 mb-8">Create your account</p>
+                <form>
+                    <div class="mb-4">
+                        <label for="name" class="block text-slate-400 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" class="w-full bg-slate-700 rounded-md p-3 text-white border-2 border-slate-600 focus:border-sky-500 focus:outline-none" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-slate-400 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="user@example.com" class="w-full bg-slate-700 rounded-md p-3 text-white border-2 border-slate-600 focus:border-sky-500 focus:outline-none" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="block text-slate-400 mb-2">Password</label>
+                        <input type="password" id="password" name="password" placeholder="********" class="w-full bg-slate-700 rounded-md p-3 text-white border-2 border-slate-600 focus:border-sky-500 focus:outline-none" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="confirm-password" class="block text-slate-400 mb-2">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="********" class="w-full bg-slate-700 rounded-md p-3 text-white border-2 border-slate-600 focus:border-sky-500 focus:outline-none" required>
+                    </div>
+                    <button type="submit" id="signup-button" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-4 rounded-md transition-colors duration-300">
+                        SIGN UP
+                    </button>
+                </form>
+                <div class="mt-6 text-center">
+                     <p class="text-slate-400">Already have an account? <a href="login.html" class="text-sky-500 hover:text-sky-400 font-semibold transition-colors duration-300">Login</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const signupForm = document.querySelector('form');
+
+            const handleSignup = (event) => {
+                event.preventDefault();
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+
+                // Simulate successful registration and login
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'index.html';
+            };
+
+            signupForm.addEventListener('submit', handleSignup);
+        });
+    </script>
+</body>
+</html>
